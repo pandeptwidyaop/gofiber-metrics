@@ -24,7 +24,6 @@ export function get() {
     http.get('http://localhost:3000/');
 
     // Sleep for 1 second to simulate real-world usage
-    sleep(1);
 }
 
 export function post() {
@@ -32,5 +31,4 @@ export function post() {
     http.post('http://localhost:3000/post');
 
     // Sleep for 1 second to simulate real-world usage
-    sleep(1.5);
 }

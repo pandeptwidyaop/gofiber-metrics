@@ -8,7 +8,6 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"golang-metrics/metrics"
-	"math/rand"
 	"os"
 	"os/signal"
 	"strconv"
@@ -44,10 +43,10 @@ func main() {
 			err := ctx.Next()
 			duration := time.Since(start)
 			metrics.RequestDuration.With(map[string]string{
-				"path": ctx.Path(),
+				"path": ctx.Route().Path,
 			}).Observe(duration.Seconds())
 			metrics.RequestTotal.With(map[string]string{
-				"path": ctx.Path(),
+				"path": ctx.Route().Path,
 				"code": strconv.Itoa(ctx.Response().StatusCode()),
 			}).Inc()
 
@@ -55,19 +54,12 @@ func main() {
 		})
 
 		app.Get("/", func(c *fiber.Ctx) error {
-			rand.Seed(time.Now().UnixNano())
-			n := rand.Intn(1000) // n will be between 0 and 10
-			time.Sleep(time.Duration(n) * time.Millisecond)
 			return c.JSON(fiber.Map{
 				"message": "Hello, World!",
 			})
 		})
 
 		app.Post("/post", func(c *fiber.Ctx) error {
-			rand.Seed(time.Now().UnixNano())
-			n := rand.Intn(1000) // n will be between 0 and 10
-			time.Sleep(time.Duration(n) * time.Millisecond)
-
 			return c.JSON(fiber.Map{
 				"message": "Hello, World!",
 			})

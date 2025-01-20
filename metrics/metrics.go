@@ -7,9 +7,8 @@ import (
 
 var RequestDuration = promauto.NewHistogramVec(
 	prometheus.HistogramOpts{
-		Name: "api_request_duration_seconds",
-		//Buckets: []float64{.00005, .0005, .005, .01, .025, .05, .1, .25, .5, 1, 2.5},
-		Buckets: prometheus.DefBuckets,
+		Name:    "api_request_duration_seconds",
+		Buckets: []float64{.00005, .0005, .005, .01, .025, .05, .1, .25, .5, 1, 2.5},
 	},
 	[]string{"path"},
 )
