@@ -33,7 +33,7 @@ Dashboard
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "beaj7qs6mktfkd"
+        "uid": "ceajg6mey8740b"
       },
       "fieldConfig": {
         "defaults": {
@@ -117,7 +117,7 @@ Dashboard
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "beaj7qs6mktfkd"
+            "uid": "ceajg6mey8740b"
           },
           "disableTextWrap": false,
           "editorMode": "builder",
@@ -137,7 +137,7 @@ Dashboard
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "beaj7qs6mktfkd"
+        "uid": "ceajg6mey8740b"
       },
       "fieldConfig": {
         "defaults": {
@@ -235,7 +235,7 @@ Dashboard
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "beaj7qs6mktfkd"
+        "uid": "ceajg6mey8740b"
       },
       "fieldConfig": {
         "defaults": {
