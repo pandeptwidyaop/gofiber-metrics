@@ -29,3 +29,10 @@ services:
       GF_DATABASE_NAME: grafana
       GF_DATABASE_USER: grafana
       GF_DATABASE_PASSWORD: grafana
+  jaeger:
+    image: jaegertracing/all-in-one
+    environment:
+      - COLLECTOR_ZIPKIN_HOST_PORT=:9411
+    ports:
+      - "16686:16686"
+      - "4318:4318"
