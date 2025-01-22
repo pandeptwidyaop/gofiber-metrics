@@ -26,6 +26,8 @@ func setupOTLPExporter(ctx context.Context) (*otlptrace.Exporter, error) {
 
 func setupOTLPTraceProvider(exporter *otlptrace.Exporter, name string) *trace.TracerProvider {
 	return trace.NewTracerProvider(
+		trace.WithSampler(trace.AlwaysSample()), // DONT DO THIS IN PRODUCTION
+		//trace.WithSampler(trace.TraceIDRatioBased(0.1)), // HANYA MERECORD 10% DATA, COCOK UNTUK PRODUCTION
 		trace.WithBatcher(
 			exporter,
 			trace.WithMaxExportBatchSize(trace.DefaultMaxExportBatchSize),
